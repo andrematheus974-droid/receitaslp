@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Receita Certa | +1.000 receitas da Cozinha Guiada</title>
+<meta name="description" content="+1.000 receitas com a Cozinha Guiada: passo a passo com foto, para o seu prato ficar perfeito de primeira.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+/* ============ CONFIGURAÇÃO ============
+   Cole aqui os links do checkout da Cakto */
+var CHECKOUT_BASICO   = "#COLE-AQUI-O-LINK-DO-BASICO";
+var CHECKOUT_COMPLETO = "#COLE-AQUI-O-LINK-DO-COMPLETO";
+
+/* Mostra um espaço reservado quando a imagem ainda não foi colocada na pasta */
+function ph(el, isIcon){
+  /* se não achar a .webp, tenta a mesma imagem em .png */
+  var src = el.getAttribute('src') || '';
+  if (/\.webp$/.test(src)) { el.setAttribute('src', src.replace(/\.webp$/, '.png')); return; }
+  var d = document.createElement('div');
+  d.className = isIcon ? 'ph-ic' : 'ph';
+  d.textContent = isIcon ? '[ÍCONE: ' + el.dataset.ph + ']' : '[IMAGEM: ' + el.dataset.ph + ']';
+  if (el.getAttribute('style')) d.setAttribute('style', el.getAttribute('style'));
+  el.replaceWith(d);
+}
+</script>
+<style>
+:root{
+  --cereja:#B23A48; --cereja-esc:#8E2A37; --baunilha:#F6E7CB; --baunilha-clara:#FBF4E6;
+  --cacau:#5C3D2E; --menta:#9CC5A1; --verde:#22C55E; --verde-esc:#15803D; --menta-esc:#4F8A5B; --branco:#FFFFFF;
+  --texto:#4A3A32; --raio:18px; --sombra:0 8px 24px rgba(92,61,46,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{overflow-x:hidden}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--texto);background:var(--branco);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 18px}
+.estreito{max-width:560px;margin:0 auto}
+h1,h2,h3,.titulo{font-family:Montserrat,Inter,sans-serif;font-weight:900;line-height:1.12;letter-spacing:-.01em;text-transform:uppercase}
+h2{font-size:clamp(24px,6.4vw,38px);color:var(--cacau);text-align:center}
+section{padding:48px 0}
+.centro{text-align:center}
+
+/* espaços reservados */
+.ph{background:repeating-linear-gradient(45deg,#f1dfbf,#f1dfbf 10px,#f6e7cb 10px,#f6e7cb 20px);border:2px dashed var(--cereja);border-radius:14px;color:var(--cereja);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;min-height:180px;width:100%}
+.ph-ic{display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed var(--cereja);border-radius:8px;color:var(--cereja);font-size:9px;font-weight:700;line-height:1.1;text-align:center;padding:2px;width:40px;height:40px;flex-shrink:0;background:var(--baunilha)}
+.ic{width:40px;height:40px;object-fit:contain;flex-shrink:0}
+.emo{display:inline-block;font-size:1.05em;line-height:1;font-style:normal}
+.emo-g{font-size:32px;flex-shrink:0;width:40px;text-align:center}
+
+.chip.ok::before{display:none}
+.ic-p{width:20px!important;height:20px!important;font-size:6px!important}
+
+/* faixa topo */
+.faixa-topo{position:sticky;top:0;z-index:50;background:var(--cereja);color:#fff;text-align:center;font-weight:700;font-size:13px;letter-spacing:.02em;padding:9px 12px;display:flex;align-items:center;justify-content:center;gap:6px;text-transform:uppercase;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+
+/* botões */
+.btn{display:inline-block;background:var(--verde);color:#fff;text-decoration:none;font-family:Montserrat,sans-serif;font-weight:800;font-size:16px;text-transform:uppercase;letter-spacing:.02em;padding:17px 26px;border-radius:14px;box-shadow:0 6px 0 var(--verde-esc),0 10px 22px rgba(34,197,94,.35);transition:transform .15s;text-align:center;width:100%;max-width:440px;animation:pulsa 2.2s infinite}
+.btn:active{transform:translateY(3px)}
+.btn-claro{}
+@keyframes pulsa{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+
+/* topo */
+.hero{padding:26px 0 40px;background:linear-gradient(180deg,var(--baunilha-clara),#fff)}
+.selo-seg{display:inline-flex;align-items:center;gap:6px;background:var(--verde);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;padding:7px 14px;border-radius:99px}
+.hero h1{font-size:clamp(30px,8.6vw,52px);color:var(--cereja);margin-top:16px}
+.hero .sub{font-family:Montserrat,sans-serif;font-weight:900;text-transform:uppercase;color:var(--cacau);font-size:clamp(19px,5.2vw,30px);line-height:1.15;margin-top:8px}
+.hero .mockup{margin:22px auto 18px;max-width:520px}
+.hero .mockup .ph{min-height:340px}
+@media(max-width:600px){.hero .mockup{margin:18px -14px 14px}}
+.hero p.desc{font-size:16px;max-width:520px;margin:0 auto}
+.bullets{list-style:none;display:inline-block;text-align:left;margin:18px auto 24px}
+.bullets li{display:flex;gap:10px;align-items:flex-start;font-size:16px;margin:7px 0}
+.bullets li::before{content:"";flex-shrink:0;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/12px no-repeat}
+.bullets li.forte{font-weight:700;color:var(--cacau)}
+.nota{font-size:13px;color:#7a6658;margin-top:14px}
+.garantias-mini{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-top:14px;font-size:13px;font-weight:600;color:var(--cacau)}
+.garantias-mini span{display:inline-flex;align-items:center;gap:6px}
+
+/* esteiras */
+.faixa-cereja{background:linear-gradient(180deg,var(--cereja),var(--cereja-esc));color:#fff}
+.faixa-cereja h2{color:#fff}
+.esteira-sec{padding:40px 0 0}
+.esteira{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:22px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.esteira::-webkit-scrollbar{display:none}
+.esteira>*{flex:0 0 62%;border:6px solid #fff;scroll-snap-align:center;border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--sombra)}
+.esteira img{width:100%;height:auto}
+.esteira .ph{min-height:300px;border-radius:16px}
+.esteira.quadrada>*{flex-basis:56%}
+.esteira.quadrada .ph{min-height:220px}
+.pontos{display:flex;justify-content:center;gap:6px;padding-bottom:22px}
+.pontos i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4)}
+.pontos i.on{background:#fff;width:20px;border-radius:9px}
+.claro .pontos i{background:#e3cfaa}.claro .pontos i.on{background:var(--cereja)}
+@media(min-width:760px){.esteira>*{flex-basis:30%}.esteira.quadrada>*{flex-basis:23%}}
+
+.passos{padding:8px 18px 26px;text-align:center}
+.passos p{font-size:15px;opacity:.95;margin-bottom:16px}
+.passos .linha{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 6px;font-weight:700;font-size:14px;margin-bottom:18px}
+.passos .linha span.p{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);padding:8px 12px;border-radius:12px}
+.passos .seta{color:var(--baunilha);font-weight:900;font-size:18px}
+
+/* cartões de benefícios */
+.grade2{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px}
+@media(min-width:640px){.grade2{grid-template-columns:1fr 1fr}}
+.card{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);padding:18px;display:flex;gap:14px;align-items:flex-start;border:1px solid #f0e3cc}
+.card h3{font-size:15px;color:var(--cereja);text-transform:none;font-weight:800;margin-bottom:4px}
+.card p{font-size:14.5px}
+
+/* urgência */
+.urgencia{background:var(--baunilha);text-align:center;padding:26px 18px}
+.urgencia .titulo{color:var(--cereja);font-size:clamp(22px,6vw,34px)}
+
+/* dor */
+.dor{padding:36px 0 44px;background:var(--baunilha)}
+.dor-card{background:linear-gradient(160deg,var(--cereja),var(--cereja-esc));color:#fff;border-radius:22px;padding:30px 22px;text-align:center;box-shadow:0 14px 34px rgba(142,42,55,.35);max-width:620px;margin:0 auto}
+.dor-card h2{color:#fff;font-size:clamp(24px,6.6vw,36px)}
+.dor-card .perg{margin:20px 0;font-size:16.5px;line-height:1.55}
+.dor-card .perg p{margin:10px 0}
+.dor-card .golpe{background:rgba(255,255,255,.12);border-left:4px solid var(--baunilha);text-align:left;padding:12px 14px;border-radius:10px;font-weight:700;font-size:16.5px;margin-bottom:24px}
+
+/* ideal */
+.ideal{background:linear-gradient(180deg,var(--cacau),#3f2a1f);color:#fff}
+.ideal h2{color:#fff}
+.chips{display:grid;grid-template-columns:1fr;gap:10px;margin-top:24px}
+@media(min-width:640px){.chips{grid-template-columns:1fr 1fr 1fr}}
+.chip{background:#fff;color:var(--cacau);border-radius:14px;padding:13px 14px;font-weight:700;font-size:14px;text-transform:uppercase;display:flex;gap:10px;align-items:center;line-height:1.25}
+.chip::before{content:"";flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/13px no-repeat}
+
+/* tudo que vai receber */
+.receber-card{background:linear-gradient(180deg,var(--cereja),var(--cereja-esc));border-radius:22px;padding:18px 18px 22px;color:#fff;max-width:460px;margin:26px auto 0;box-shadow:0 14px 34px rgba(142,42,55,.3)}
+.receber-card .tag{display:inline-block;background:var(--baunilha);color:var(--cereja);font-weight:800;font-size:12px;text-transform:uppercase;padding:5px 12px;border-radius:99px;margin-bottom:12px}
+.receber-card .img{margin-bottom:14px}
+.receber-card .img img{filter:drop-shadow(0 10px 18px rgba(0,0,0,.3))}
+.receber-card .img .ph{min-height:260px}
+.lista-check{list-style:none}
+.lista-check li{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:15px}
+.lista-check li:last-child{border-bottom:0}
+.lista-check li::before{content:"";flex-shrink:0;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/11px no-repeat}
+.receber-card .nota{color:#fff;opacity:.85;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* bônus */
+.bonus-sec h2{font-size:clamp(26px,7vw,40px)}
+.bonus-sec .voce{font-style:italic;font-weight:700;text-align:center;font-size:18px;color:var(--cacau);margin-top:10px}
+.etiqueta{display:inline-flex;align-items:center;gap:7px;background:var(--cereja);color:#fff;font-weight:800;text-transform:uppercase;font-size:14px;padding:8px 18px;border-radius:99px;box-shadow:0 6px 16px rgba(178,58,72,.3)}
+.grade-bonus{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+@media(max-width:600px){.grade-bonus{gap:8px;margin-left:-8px;margin-right:-8px}.bonus{padding:10px;border-radius:14px}.bonus h3{font-size:14px}.bonus p{font-size:12px;line-height:1.4}.bonus .num{font-size:10px}.bonus .valor{font-size:11px;padding:6px 4px;margin-top:10px}}
+@media(min-width:900px){.grade-bonus{grid-template-columns:1fr 1fr 1fr}}
+.bonus{background:linear-gradient(180deg,var(--cereja),var(--cereja-esc));border-radius:20px;padding:16px;color:#fff;display:flex;flex-direction:column;box-shadow:var(--sombra)}
+.bonus .capa{margin:10px auto 16px;width:74%;max-width:260px}
+.bonus .capa img{filter:drop-shadow(0 10px 14px rgba(0,0,0,.25))}
+.bonus .capa .ph{min-height:260px;background:#fff}
+.bonus .num{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.bonus h3{font-size:18px;color:var(--baunilha);text-transform:none;margin:3px 0 8px}
+.bonus p{font-size:14px;opacity:.95;flex:1}
+.bonus .valor{margin-top:14px;background:#fff;color:var(--cacau);border-radius:10px;text-align:center;font-size:13px;font-weight:600;padding:7px}
+.valor s{color:var(--cereja)}
+.valor b{color:var(--verde);font-weight:900;font-size:1.1em}
+.soma{max-width:520px;margin:28px auto 0;background:var(--baunilha);border-radius:20px;padding:22px;text-align:center;border:2px dashed var(--cereja)}
+.soma .linha{display:flex;justify-content:space-between;font-size:15px;padding:6px 0;border-bottom:1px solid #e6d2ad}
+.soma .total{font-family:Montserrat,sans-serif;font-weight:900;font-size:20px;color:var(--cacau);margin-top:12px}
+.soma .total s{color:var(--cereja)}
+.soma .hoje{font-family:Montserrat,sans-serif;font-weight:900;font-size:24px;color:var(--cereja);margin-top:4px;text-transform:uppercase}
+
+/* depoimentos (oculto até chegarem os reais) */
+.depo{display:none}
+.depo .grade{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+
+/* planos */
+.planos-sec{background:linear-gradient(180deg,#fff,var(--baunilha-clara))}
+.planos-sec h2{margin-top:16px}
+.risco{width:60px;height:3px;background:var(--cacau);opacity:.3;margin:16px auto 0;border-radius:3px}
+.planos{display:grid;grid-template-columns:.9fr 1fr;gap:26px;margin-top:34px;align-items:start;max-width:860px;margin-left:auto;margin-right:auto}
+.plano{border-radius:20px;padding:20px;position:relative}
+.plano h3{text-align:center;font-size:22px}
+.plano .img{margin:14px 0}
+.completo .img img{filter:drop-shadow(0 10px 18px rgba(0,0,0,.3))}
+.plano .img .ph{min-height:200px}
+.plano ul{list-style:none}
+.plano li{display:flex;gap:9px;padding:8px 0;font-size:14.5px;border-bottom:1px solid #eee2cf}
+.plano li::before{content:"";flex-shrink:0;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/11px no-repeat}
+.preco{text-align:center;margin-top:16px}
+.preco .de{font-weight:700;font-size:15px}
+.preco .de s{color:var(--cereja)}
+.preco .por{font-family:Montserrat,sans-serif;font-weight:900;font-size:50px;line-height:1.05}
+.preco .parc{font-size:12.5px;opacity:.8}
+.preco .eco{font-size:15px;margin:8px 0 14px}
+.preco .eco::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--verde);margin-right:6px;vertical-align:middle}
+.basico{background:#fff;border:1px solid #e9dcc4;box-shadow:0 4px 14px rgba(0,0,0,.05);opacity:.96}
+.basico h3{color:var(--cacau)}
+.basico .por{color:var(--verde)}
+.basico .btn{font-size:14px;animation:none;padding:14px}
+.completo{background:linear-gradient(180deg,var(--cereja),var(--cereja-esc));color:#fff;box-shadow:0 18px 40px rgba(142,42,55,.4);border:3px solid var(--baunilha)}
+@media(min-width:760px){.completo{transform:scale(1.04)}}
+.completo h3{color:#fff}
+.completo li{border-bottom-color:rgba(255,255,255,.15)}
+.completo li b{color:var(--baunilha)}
+.completo .por{color:#4ADE80;text-shadow:0 2px 6px rgba(0,0,0,.25)}
+.completo .de s{color:var(--baunilha);opacity:.85}
+.completo .ult{background:#fff;color:var(--cereja);font-size:11.5px;font-weight:800;text-transform:uppercase;text-align:center;border-radius:99px;padding:6px 10px;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:6px}
+.mais-vendido{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--verde);color:#fff;font-weight:900;font-size:12px;text-transform:uppercase;padding:7px 16px;border-radius:99px;white-space:nowrap;box-shadow:0 6px 14px rgba(0,0,0,.18);letter-spacing:.04em}
+.mais-bonus{background:#fff;color:var(--cereja);text-align:center;font-weight:800;font-size:13px;border-radius:99px;padding:6px;margin-bottom:6px;text-transform:uppercase}
+.pagamentos{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:14px;font-size:12px;font-weight:700;opacity:.9}
+.pagamentos span{display:inline-flex;align-items:center;gap:5px}
+
+
+/* planos lado a lado também no celular */
+@media(max-width:600px){
+  .planos-sec .wrap{padding:0 8px}
+  .planos{gap:7px;margin-top:30px}
+  .plano{padding:12px 8px;border-radius:14px}
+  .plano h3{font-size:14px}
+  .plano .img{margin:8px 0}
+  .plano .img .ph{min-height:110px;font-size:10px}
+  .plano li{font-size:11px;padding:5px 0;gap:5px;line-height:1.3}
+  .plano li::before{width:13px;height:13px;background-size:8px;margin-top:1px}
+  .preco{margin-top:10px}
+  .preco .de{font-size:11px}
+  .preco .por{font-size:27px}
+  .preco .parc{font-size:10px}
+  .preco .eco{font-size:11px;margin:6px 0 10px}
+  .preco .eco::before{width:5px;height:5px;margin-right:4px}
+  .plano .btn,.basico .btn{font-size:11px;padding:11px 6px;border-radius:10px;box-shadow:0 4px 0 var(--verde-esc)}
+  .completo{border-width:2px}
+  .completo .ult{font-size:8.5px;padding:4px 6px;margin-bottom:8px;gap:3px}
+  .mais-bonus{font-size:10px;padding:4px}
+  .mais-vendido{font-size:10px;padding:5px 10px;top:-13px}
+  .pagamentos{font-size:10px;gap:5px}
+}
+
+/* garantia */
+.garantia{background:var(--baunilha-clara)}
+.garantia .box{display:flex;flex-direction:column;align-items:center;gap:22px;max-width:820px;margin:0 auto;text-align:center}
+.garantia .selo{width:240px;flex-shrink:0}
+.garantia .selo img{mix-blend-mode:multiply}
+.garantia .selo .ph{min-height:220px;border-radius:50%}
+.garantia h2{text-align:inherit;font-size:clamp(24px,6.4vw,34px)}
+.garantia p{margin-top:12px;font-size:15.5px}
+.garantia .sem{margin-top:14px;font-weight:800;color:var(--cacau);line-height:1.6}
+@media(min-width:700px){.garantia .box{flex-direction:row;text-align:left}}
+
+/* faq */
+.faq{max-width:640px;margin:26px auto 0}
+.faq details{border-bottom:1px solid #e6d6ba;padding:4px 0}
+.faq summary{list-style:none;cursor:pointer;padding:14px 34px 14px 4px;font-weight:600;font-size:15.5px;color:var(--cacau);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:8px;font-size:24px;color:var(--cereja);font-weight:700}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 4px 16px;font-size:15px}
+
+/* final e rodapé */
+.final{text-align:center;padding:10px 0 56px}
+footer{background:var(--cacau);color:#e9dccb;text-align:center;font-size:12px;padding:24px 18px 30px}
+footer p{margin:4px 0}
+</style>
+</head>
+<body>
+
+<!-- 1. FAIXA NO TOPO (data atualiza sozinha todo dia) -->
+<div class="faixa-topo">
+  <span class="emo">⚡</span>
+  <span>Oferta especial disponível apenas hoje <span id="data-hoje"></span></span>
+</div>
+
+<!-- 2. TOPO -->
+<header class="hero centro">
+  <div class="wrap">
+    <span class="selo-seg"><span class="emo">🔒</span>Compra 100% segura e protegida</span>
+    <h1>+1.000 receitas da Cozinha Guiada</h1>
+    <div class="sub">Para o seu prato ficar perfeito de primeira</div>
+
+    <div class="mockup">
+      <img src="img/mockup-principal.webp" alt="App Receita Certa com os 6 bônus" data-ph="mockup principal: celular com o app + 6 capas de bônus" onerror="ph(this)">
+    </div>
+
+    <p class="desc">Você recebe +1.000 receitas com a <b>Cozinha Guiada</b>: passo a passo com foto, para você acertar de primeira, mesmo sem experiência.</p>
+
+    <ul class="bullets">
+      <li>+1.000 receitas prontas no seu celular</li>
+      <li>Passo a passo com foto, fácil de seguir</li>
+      <li>Doces, salgados, bolos e datas especiais</li>
+      <li class="forte">Para quem quer acertar de primeira, mesmo sem experiência</li>
+    </ul>
+    <br>
+    <a class="btn" href="#planos">Quero a Receita Certa</a>
+    <div class="garantias-mini"><span>Pagamento único</span><span>·</span><span>Acesso na hora</span><span>·</span><span>Android e iPhone</span></div>
+    <p class="nota">Você recebe tudo na hora, direto no seu <span class="emo">📩</span> e-mail.</p>
+  </div>
+</header>
+
+<!-- 3 e 4. ESTEIRA 1: TELAS DO APP + FAIXA DE COMO FUNCIONA -->
+<section class="faixa-cereja esteira-sec">
+  <div class="wrap"><h2>Veja o app que você vai receber na prática</h2></div>
+  <div class="esteira" data-auto>
+    <div><img src="img/tela-1.webp" alt="Tela inicial" data-ph="tela 1: início" onerror="ph(this)"></div>
+    <div><img src="img/tela-2.webp" alt="Categoria Doces" data-ph="tela 2: categoria doces" onerror="ph(this)"></div>
+    <div><img src="img/tela-3.webp" alt="Receita aberta" data-ph="tela 3: receita aberta" onerror="ph(this)"></div>
+    <div><img src="img/tela-4.webp" alt="Modo Cozinha" data-ph="tela 4: modo cozinha" onerror="ph(this)"></div>
+    <div><img src="img/tela-5.webp" alt="O que tem na geladeira" data-ph="tela 5: o que tem na geladeira" onerror="ph(this)"></div>
+    <div><img src="img/tela-6.webp" alt="Lista de compras" data-ph="tela 6: lista de compras" onerror="ph(this)"></div>
+  </div>
+  <div class="pontos"></div>
+
+  <div class="passos">
+    <p>Todas as receitas já estão <b>organizadas e prontas para usar</b>.</p>
+    <div class="linha">
+      <span class="p">Escolhe a receita</span>
+      <span class="seta">&rarr;</span>
+      <span class="p">Segue a Cozinha Guiada</span>
+      <span class="seta">&rarr;</span>
+      <span class="p">Serve e recebe o elogio</span>
+    </div>
+    <a class="btn btn-claro" href="#planos">Eu quero o meu</a>
+  </div>
+
+  <!-- 5. ESTEIRA 2: RECEITAS POR DENTRO -->
+  <div class="esteira" data-auto>
+    <div><img src="img/receita-1.webp" alt="Pudim de leite" data-ph="receita 1: pudim de leite" onerror="ph(this)"></div>
+    <div><img src="img/receita-2.webp" alt="Bolo de cenoura" data-ph="receita 2: bolo de cenoura" onerror="ph(this)"></div>
+    <div><img src="img/receita-3.webp" alt="Torta de frango" data-ph="receita 3: torta de frango" onerror="ph(this)"></div>
+    <div><img src="img/receita-4.webp" alt="Brigadeiro" data-ph="receita 4: brigadeiro" onerror="ph(this)"></div>
+    <div><img src="img/receita-5.webp" alt="Lasanha" data-ph="receita 5: lasanha" onerror="ph(this)"></div>
+    <div><img src="img/receita-6.webp" alt="Pavê" data-ph="receita 6: pavê" onerror="ph(this)"></div>
+  </div>
+  <div class="pontos"></div>
+</section>
+
+<!-- 6. A COZINHA GUIADA POSSUI -->
+<section>
+  <div class="wrap">
+    <h2>A Cozinha Guiada possui:</h2>
+    <div class="grade2 estreito" style="max-width:860px">
+      <div class="card"><span class="emo emo-g">📸</span><div><h3>Passo a passo com foto</h3><p>Você vê como cada etapa tem que ficar antes de seguir.</p></div></div>
+      <div class="card"><span class="emo emo-g">📝</span><div><h3>Ingredientes organizados</h3><p>Marca o que já separou e não esquece nada.</p></div></div>
+      <div class="card"><span class="emo emo-g">🍽️</span><div><h3>Porções que se ajustam</h3><p>De 4 para 15 pessoas, sem fazer conta.</p></div></div>
+      <div class="card"><span class="emo emo-g">📱</span><div><h3>Tudo no seu celular</h3><p>Funciona sem internet depois de instalado.</p></div></div>
+    </div>
+    <div class="centro" style="margin-top:26px"><a class="btn" href="#planos">Quero a Cozinha Guiada agora</a></div>
+  </div>
+</section>
+
+<!-- 7. URGÊNCIA -->
+<div class="urgencia"><div class="titulo">Aproveite o preço promocional por tempo limitado</div></div>
+
+<!-- 8. DOR -->
+<section class="dor">
+  <div class="wrap">
+    <div class="dor-card">
+      <h2>Não deixe o seu prato ser esquecido no canto da mesa de novo!</h2>
+      <div class="perg">
+        <p>Por que o bolo dela fica perfeito… e o seu não?</p>
+        <p>Quantas vezes todo mundo pediu a receita <b>dela</b>, e ninguém nem comentou o <b>seu</b> prato?</p>
+      </div>
+      <div class="golpe">Ela não cozinha melhor que você. Ela só segue uma receita que explica direito.</div>
+      <a class="btn btn-claro" href="#planos">Quero ser a que todo mundo pede a receita</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. ESTEIRA 3: CATEGORIAS -->
+<section class="claro" style="padding:40px 0 0">
+  <div class="wrap"><h2>Tem receita pra tudo</h2></div>
+  <div class="esteira quadrada" data-auto>
+    <div><img src="img/categoria-1.webp" alt="Doces" data-ph="categoria: doces" onerror="ph(this)"></div>
+    <div><img src="img/categoria-2.webp" alt="Salgados" data-ph="categoria: salgados" onerror="ph(this)"></div>
+    <div><img src="img/categoria-3.webp" alt="Bolos" data-ph="categoria: bolos" onerror="ph(this)"></div>
+    <div><img src="img/categoria-4.webp" alt="Sobremesas" data-ph="categoria: sobremesas" onerror="ph(this)"></div>
+    <div><img src="img/categoria-5.webp" alt="Lanches" data-ph="categoria: lanches" onerror="ph(this)"></div>
+    <div><img src="img/categoria-6.webp" alt="Rápidas" data-ph="categoria: rápidas" onerror="ph(this)"></div>
+    <div><img src="img/categoria-7.webp" alt="Econômicas" data-ph="categoria: econômicas" onerror="ph(this)"></div>
+    <div><img src="img/categoria-8.webp" alt="Datas especiais" data-ph="categoria: datas especiais" onerror="ph(this)"></div>
+  </div>
+  <div class="pontos"></div>
+</section>
+
+<!-- 10. IDEAL PARA VOCÊ -->
+<section class="ideal">
+  <div class="wrap">
+    <h2>Este app é ideal para você que deseja:</h2>
+    <div class="chips">
+      <div class="chip ok"><span class="emo" style="font-size:20px">✅</span>Parar de levar o prato que ninguém come</div>
+      <div class="chip ok"><span class="emo" style="font-size:20px">✅</span>Ser a que todo mundo pede a receita</div>
+      <div class="chip ok"><span class="emo" style="font-size:20px">✅</span>Acertar o bolo de primeira, sem desperdiçar ingrediente</div>
+      <div class="chip ok"><span class="emo" style="font-size:20px">✅</span>Arrasar nas datas especiais sem passar vergonha</div>
+      <div class="chip ok"><span class="emo" style="font-size:20px">✅</span>Fazer o almoço com o que já tem em casa</div>
+      <div class="chip ok"><span class="emo" style="font-size:20px">✅</span>Cozinhar sem ficar adivinhando o ponto</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. TUDO QUE VOCÊ VAI RECEBER -->
+<section>
+  <div class="wrap">
+    <h2>Tudo que você vai receber</h2>
+    <div class="receber-card">
+      <div class="centro"><span class="tag">Acesso imediato</span></div>
+      <div class="img"><img src="img/mockup-app.webp" alt="App Receita Certa" data-ph="mockup só do app" onerror="ph(this)"></div>
+      <ul class="lista-check">
+        <li>+1.000 receitas da Cozinha Guiada</li>
+        <li>Passo a passo com foto</li>
+        <li>8 categorias organizadas</li>
+        <li>Receitas novas sem custo</li>
+      </ul>
+      <p class="nota">Você recebe tudo na hora, direto no seu <span class="emo">📩</span> e-mail.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12. BÔNUS -->
+<section class="bonus-sec" style="padding-top:20px">
+  <div class="wrap">
+    <h2>E não para por aí…<br>tem mais!</h2>
+    <p class="voce">Você também vai receber…</p>
+    <div class="centro" style="margin-top:14px"><span class="etiqueta"><span class="emo">🔥</span>6 bônus exclusivos</span></div>
+
+    <div class="grade-bonus">
+      <div class="bonus">
+        <div class="capa"><img src="img/bonus-1.webp" alt="Bônus 1" data-ph="capa bônus 1 (cereja)" onerror="ph(this)"></div>
+        <span class="num">Bônus #1</span>
+        <h3>+120 Receitas de Datas Especiais</h3>
+        <p>Natal, Ano Novo, Páscoa, Dia das Mães, Festa Junina e aniversário. A receita da data aparece sozinha na sua tela.</p>
+        <div class="valor">Valor: <s>R$27</s> <b>GRÁTIS</b></div>
+      </div>
+      <div class="bonus">
+        <div class="capa"><img src="img/bonus-2.webp" alt="Bônus 2" data-ph="capa bônus 2 (verde menta)" onerror="ph(this)"></div>
+        <span class="num">Bônus #2</span>
+        <h3>O que tem na geladeira?</h3>
+        <p>Marque o que você tem em casa e o app mostra o que dá pra fazer.</p>
+        <div class="valor">Valor: <s>R$27</s> <b>GRÁTIS</b></div>
+      </div>
+      <div class="bonus">
+        <div class="capa"><img src="img/bonus-3.webp" alt="Bônus 3" data-ph="capa bônus 3 (mostarda)" onerror="ph(this)"></div>
+        <span class="num">Bônus #3</span>
+        <h3>Lista de Compras Automática</h3>
+        <p>A lista sai pronta, separada por seção do mercado, com botão de compartilhar.</p>
+        <div class="valor">Valor: <s>R$27</s> <b>GRÁTIS</b></div>
+      </div>
+      <div class="bonus">
+        <div class="capa"><img src="img/bonus-4.webp" alt="Bônus 4" data-ph="capa bônus 4 (abóbora)" onerror="ph(this)"></div>
+        <span class="num">Bônus #4</span>
+        <h3>Calculadora e Conversor da Cozinha</h3>
+        <p>Porções que se ajustam, xícara em gramas e o que usar quando falta um ingrediente.</p>
+        <div class="valor">Valor: <s>R$27</s> <b>GRÁTIS</b></div>
+      </div>
+      <div class="bonus">
+        <div class="capa"><img src="img/bonus-5.webp" alt="Bônus 5" data-ph="capa bônus 5 (azul-petróleo)" onerror="ph(this)"></div>
+        <span class="num">Bônus #5</span>
+        <h3>Por que deu errado?</h3>
+        <p>Bolo solou, brigadeiro açucarou, maionese desandou: o motivo e como acertar na próxima.</p>
+        <div class="valor">Valor: <s>R$27</s> <b>GRÁTIS</b></div>
+      </div>
+      <div class="bonus">
+        <div class="capa"><img src="img/bonus-6.webp" alt="Bônus 6" data-ph="capa bônus 6 (cacau)" onerror="ph(this)"></div>
+        <span class="num">Bônus #6</span>
+        <h3>Modo Cozinha</h3>
+        <p>Letra grande, tela sempre acesa e cronômetro em cada passo.</p>
+        <div class="valor">Valor: <s>R$27</s> <b>GRÁTIS</b></div>
+      </div>
+    </div>
+
+    <div class="soma">
+      <div class="linha"><span>App Receita Certa</span><span>R$47,90</span></div>
+      <div class="linha"><span>6 bônus exclusivos</span><span>R$162,00</span></div>
+      <div class="total">Total: <s>R$209,90</s></div>
+      <div class="hoje">Os 6 bônus saem <span style="color:var(--verde)">grátis</span></div>
+      <p class="nota" style="margin-top:6px">Bônus inclusos no Plano Completo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 13. DEPOIMENTOS: só prints reais. Para mostrar, troque display:none por display:block em .depo -->
+<section class="depo">
+  <div class="wrap">
+    <h2>Elas também achavam que o problema era falta de jeito</h2>
+    <div class="grade">
+      <img src="img/depoimento-1.webp" alt="Depoimento">
+      <img src="img/depoimento-2.webp" alt="Depoimento">
+      <img src="img/depoimento-3.webp" alt="Depoimento">
+      <img src="img/depoimento-4.webp" alt="Depoimento">
+    </div>
+  </div>
+</section>
+
+<!-- 14. PLANOS -->
+<section class="planos-sec" id="planos">
+  <div class="wrap centro">
+    <span class="etiqueta"><span class="emo">⏰</span>Última chance: oferta termina hoje</span>
+    <h2>Escolha a melhor opção para você:</h2>
+    <div class="risco"></div>
+  </div>
+  <div class="wrap">
+    <div class="planos">
+
+      <div class="plano basico">
+        <h3>Plano Básico</h3>
+        <div class="img"><img src="img/mockup-app.webp" alt="App Receita Certa" data-ph="mockup só do app" onerror="ph(this)"></div>
+        <ul>
+          <li>+1.000 receitas da Cozinha Guiada</li>
+          <li>Passo a passo com foto</li>
+          <li>Receitas organizadas</li>
+          <li>Fácil de usar</li>
+        </ul>
+        <div class="preco">
+          <div class="de"><s>de R$27,90</s> por:</div>
+          <div class="por">R$19,90</div>
+          <div class="parc">ou 3x de R$7,03 no cartão</div>
+          <div class="eco">Você economiza <b>R$8,00</b></div>
+          <a class="btn js-basico" href="#">Quero somente o básico</a>
+        </div>
+      </div>
+
+      <div class="plano completo">
+        <span class="mais-vendido">⭐ Mais vendido</span>
+        <div class="ult"><span class="emo">⏰</span>Última chance: oferta termina hoje</div>
+        <h3>Plano Completo</h3>
+        <div class="img"><img src="img/mockup-principal.webp" alt="App com os 6 bônus" data-ph="mockup principal com os 6 bônus" onerror="ph(this)"></div>
+        <div class="mais-bonus">⚡ +6 bônus exclusivos</div>
+        <ul>
+          <li>+1.000 receitas da Cozinha Guiada</li>
+          <li class="gift"><span>🎁 <b>Bônus #1</b> +120 Receitas de Datas Especiais</span></li>
+          <li class="gift"><span>🎁 <b>Bônus #2</b> O que tem na geladeira?</span></li>
+          <li class="gift"><span>🎁 <b>Bônus #3</b> Lista de Compras Automática</span></li>
+          <li class="gift"><span>🎁 <b>Bônus #4</b> Calculadora e Conversor da Cozinha</span></li>
+          <li class="gift"><span>🎁 <b>Bônus #5</b> Por que deu errado?</span></li>
+          <li class="gift"><span>🎁 <b>Bônus #6</b> Modo Cozinha</span></li>
+          <li>Passo a passo com foto</li>
+          <li>Receitas organizadas</li>
+          <li>Fácil de usar</li>
+        </ul>
+        <div class="preco">
+          <div class="de"><s>de R$47,90</s> por:</div>
+          <div class="por">R$27,90</div>
+          <div class="parc">ou 6x de R$5,15 no cartão</div>
+          <div class="eco">Você economiza <b>R$20,00</b></div>
+          <a class="btn btn-claro js-completo" href="#">Quero o plano completo</a>
+          <div class="pagamentos"><span>Pix</span><span>·</span><span>Cartão de crédito</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 15. GARANTIA -->
+<section class="garantia">
+  <div class="wrap">
+    <div class="box">
+      <div class="selo"><img src="img/selo-garantia.webp" alt="Garantia de 7 dias" data-ph="selo dourado 7 dias" onerror="ph(this)"></div>
+      <div>
+        <h2>Garantia de 7 dias: zero risco pra você</h2>
+        <p>Depois da compra, você tem <b>7 dias para acessar o app, fazer as receitas</b> e ver na prática como a Cozinha Guiada funciona.</p>
+        <p>Se por qualquer motivo sentir que <b>não é pra você</b>, é só pedir o reembolso dentro desse prazo.</p>
+        <p class="sem">Sem burocracia.<br>Sem perguntas.<br>Sem dor de cabeça.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16. PERGUNTAS FREQUENTES -->
+<section>
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+    <div class="faq">
+      <details><summary>Preciso baixar na loja de aplicativos?</summary><p>Não. Você abre o link que chega no seu e-mail e coloca o app na tela do celular com um toque, sem passar pela loja.</p></details>
+      <details><summary>Funciona no iPhone e no Android?</summary><p>Sim. Funciona nos dois.</p></details>
+      <details><summary>Preciso de internet?</summary><p>Só para abrir na primeira vez. Depois de instalado, o app funciona sem internet.</p></details>
+      <details><summary>Preciso ter experiência na cozinha?</summary><p>Não. A Cozinha Guiada mostra cada etapa com foto, então você sabe como tem que ficar antes de seguir para a próxima.</p></details>
+      <details><summary>Como vou receber o acesso?</summary><p>Na hora, direto no seu e-mail, assim que o pagamento for aprovado.</p></details>
+      <details><summary>É mensalidade?</summary><p>Não. É pagamento único.</p></details>
+      <details><summary>Vai ter receita nova?</summary><p>Sim. Novas receitas entram no app com o tempo, sem custo.</p></details>
+      <details><summary>Qual a diferença entre o básico e o completo?</summary><p>O Básico tem as +1.000 receitas da Cozinha Guiada. O Completo tem as mesmas receitas e mais os 6 bônus: Datas Especiais, O que tem na geladeira?, Lista de Compras Automática, Calculadora e Conversor, Por que deu errado? e Modo Cozinha.</p></details>
+      <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Se não gostar, é só pedir o reembolso dentro do prazo e devolvemos cada centavo.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 17. FECHAMENTO -->
+<div class="final wrap">
+  <a class="btn" href="#planos">Quero ser a que todo mundo pede a receita</a>
+</div>
+
+<footer>
+  <p>Copyright &copy; <span id="ano"></span> Receita Certa | Todos os direitos reservados.</p>
+  <p>Este site não é afiliado ao Facebook, Instagram, Google ou qualquer outra plataforma mencionada.</p>
+</footer>
+
+<script>
+/* data do dia na faixa do topo */
+(function(){
+  var d = new Date();
+  document.getElementById('data-hoje').textContent = d.toLocaleDateString('pt-BR');
+  document.getElementById('ano').textContent = d.getFullYear();
+})();
+
+/* links do checkout */
+document.querySelectorAll('.js-basico').forEach(function(a){ a.href = CHECKOUT_BASICO; });
+document.querySelectorAll('.js-completo').forEach(function(a){ a.href = CHECKOUT_COMPLETO; });
+
+/* esteiras laterais: andam sozinhas e param quando a pessoa toca */
+document.querySelectorAll('.esteira').forEach(function(el){
+  var pontos = el.nextElementSibling && el.nextElementSibling.classList.contains('pontos') ? el.nextElementSibling : null;
+  var n = el.children.length;
+  if (pontos){ for (var i=0;i<n;i++){ pontos.appendChild(document.createElement('i')); } }
+  function atual(){
+    var c = el.scrollLeft + el.clientWidth/2, best = 0, dist = 1e9;
+    for (var i=0;i<n;i++){ var it = el.children[i]; var m = it.offsetLeft + it.offsetWidth/2; var dd = Math.abs(m-c); if (dd<dist){dist=dd;best=i;} }
+    return best;
+  }
+  function marca(){ if(!pontos) return; var a = atual(); Array.prototype.forEach.call(pontos.children,function(p,i){ p.className = i===a ? 'on' : ''; }); }
+  function vai(i){ var it = el.children[i]; el.scrollTo({left: it.offsetLeft - (el.clientWidth - it.offsetWidth)/2, behavior:'smooth'}); }
+  var pausa = 0;
+  ['touchstart','pointerdown','wheel'].forEach(function(ev){ el.addEventListener(ev, function(){ pausa = Date.now() + 6000; }, {passive:true}); });
+  el.addEventListener('scroll', marca, {passive:true});
+  marca();
+  setInterval(function(){
+    if (Date.now() < pausa) return;
+    var r = el.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > window.innerHeight) return;
+    var a = atual(); vai(a+1 >= n ? 0 : a+1);
+  }, 2600);
+});
+</script>
+</body>
+</html>
